@@ -1,0 +1,124 @@
+'use client';
+
+import StatItem from './StatItem';
+import SlideUp from '@/components/animations/SlideUp';
+import FadeIn from '@/components/animations/FadeIn';
+import SlideIn from '@/components/animations/SlideIn';
+import StaggerContainer, { StaggerItem } from '@/components/animations/StaggerContainer';
+
+export default function ExperienceBand() {
+  return (
+    <section className="relative w-full border-b border-white/10 overflow-hidden">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 opacity-30"
+        style={{
+          backgroundImage: 'url(/images/mountain-bg.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0D0C] via-[#0A0D0C]/95 to-[#0A0D0C]" />
+
+      {/* Content */}
+      <div className="relative mx-auto max-w-[1440px] px-6 lg:px-12 py-10 lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          {/* Left: Main Text */}
+          <div className="lg:col-span-4">
+            <SlideUp>
+              <h2 className="font-display text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#F2F2EA] mb-4 lg:mb-6 leading-tight">
+                BUILT ON<br />EXPERIENCE.<br />DRIVEN BY<br />PURPOSE.
+              </h2>
+            </SlideUp>
+            <FadeIn delay={0.2}>
+              <p className="font-body text-sm lg:text-base text-[#A8ADA8] leading-relaxed mb-6">
+                Founded by veterans and operational professionals, LTT Tactical delivers training that bridges the gap between theory and reality. Our instructors have served in high-risk environments worldwide.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.4}>
+              <button className="font-body inline-block px-6 py-4 border border-[#D89B20] text-[#D89B20] text-sm font-semibold uppercase tracking-wide hover:bg-[#D89B20] hover:text-[#050605] transition-all whitespace-nowrap">
+                About LTT Tactical
+              </button>
+            </FadeIn>
+          </div>
+
+          {/* Middle: Stats Grid */}
+          <div className="lg:col-span-4">
+            <StaggerContainer staggerDelay={0.15} className="grid grid-cols-2 gap-4">
+              <StaggerItem>
+                <StatItem value="10+" label="Years In Operation" />
+              </StaggerItem>
+              <StaggerItem>
+                <StatItem value="50K+" label="Students Trained Worldwide" />
+              </StaggerItem>
+              <StaggerItem>
+                <StatItem value="30+" label="Countries Global Experience" />
+              </StaggerItem>
+              <StaggerItem>
+                <StatItem value="100%" label="Veteran Owned Mission Driven" />
+              </StaggerItem>
+            </StaggerContainer>
+          </div>
+
+          {/* Right: Instructor Promo Card */}
+          <div className="lg:col-span-4">
+            <SlideIn direction="right">
+              <div className="relative h-full min-h-[320px] lg:min-h-[400px] overflow-hidden border border-white/10 bg-[#111513]">
+              {/* Background Image */}
+              <div
+                className="absolute inset-0 opacity-40"
+                style={{
+                  backgroundImage: 'url(/images/instructor.jpg)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              />
+
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050605] via-[#050605]/80 to-transparent" />
+
+              {/* Content */}
+              <div className="relative h-full flex flex-col justify-end p-6 lg:p-8">
+                <div className="mb-3">
+                  <div className="inline-block px-3 py-1 bg-[#D89B20]/20 border border-[#D89B20]/50 mb-4">
+                    <span className="font-display text-xs font-semibold uppercase tracking-widest text-[#D89B20]">
+                      Our Team
+                    </span>
+                  </div>
+                </div>
+
+                <h3 className="font-display text-2xl lg:text-3xl font-bold uppercase tracking-tight text-[#F2F2EA] mb-3">
+                  MEET OUR<br />INSTRUCTORS
+                </h3>
+
+                <p className="font-body text-sm text-[#A8ADA8] leading-relaxed mb-6">
+                  Real-world operators. Trusted mentors. Committed to your safety.
+                </p>
+
+                <button className="inline-flex items-center gap-2 text-[#D89B20] hover:gap-3 transition-all group">
+                  <span className="font-body text-sm font-semibold uppercase tracking-wider">Meet The Team</span>
+                  <svg
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            </SlideIn>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

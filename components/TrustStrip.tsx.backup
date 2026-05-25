@@ -1,0 +1,69 @@
+'use client';
+
+import FadeIn from '@/components/animations/FadeIn';
+import StaggerContainer, { StaggerItem } from '@/components/animations/StaggerContainer';
+
+export default function TrustStrip() {
+  const agencies = [
+    'Canada Border Services Agency',
+    'Global Affairs Canada',
+    'Immigration, Refugees and Citizenship Canada',
+    'Canadian Food Inspection Agency',
+  ];
+
+  return (
+    <section className="relative w-full border-b border-white/10 bg-[#080A09]">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-12 py-5 lg:py-6">
+        <div className="flex flex-col items-center gap-6">
+          {/* Label */}
+          <FadeIn>
+            <div className="flex items-center gap-3">
+              <div className="h-[1px] w-8 bg-[#D89B20]" />
+              <p className="text-[10px] lg:text-xs font-semibold uppercase tracking-widest text-[#D89B20]">
+                Trusted by Government of Canada Agencies
+              </p>
+              <div className="h-[1px] w-8 bg-[#D89B20]" />
+            </div>
+          </FadeIn>
+
+          {/* Agencies Grid */}
+          <StaggerContainer staggerDelay={0.15} className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full max-w-5xl">
+            {agencies.map((agency, index) => (
+              <StaggerItem
+                key={index}
+                className="flex flex-col items-center gap-3 group cursor-pointer"
+              >
+                {/* Icon/Crest Placeholder */}
+                <div className="relative flex h-12 w-12 items-center justify-center border border-white/10 bg-[#111513] group-hover:border-[#D89B20]/50 transition-colors">
+                  <svg
+                    className="h-6 w-6 text-[#55624A] group-hover:text-[#D89B20] transition-colors"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"
+                    />
+                  </svg>
+                  {/* Corner brackets */}
+                  <div className="absolute top-0 left-0 h-2 w-2 border-t border-l border-[#D89B20]/30" />
+                  <div className="absolute top-0 right-0 h-2 w-2 border-t border-r border-[#D89B20]/30" />
+                  <div className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-[#D89B20]/30" />
+                  <div className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-[#D89B20]/30" />
+                </div>
+
+                {/* Agency Name */}
+                <p className="text-[10px] lg:text-xs text-center text-[#A8ADA8] group-hover:text-[#F2F2EA] transition-colors leading-tight uppercase tracking-wide font-medium">
+                  {agency}
+                </p>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </div>
+    </section>
+  );
+}
